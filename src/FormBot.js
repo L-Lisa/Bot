@@ -49,7 +49,7 @@ export const FormBot = () => {
                         {/*  <img src="/Users/lisa/Desktop/ChatBotCli/chat-bot/src/ricardoRund.png" alt="Ricardo" class="ricardoheader" /> */}
 
                         <Header />
-                        <img src={ricardo} alt="Ricardo Pineda" />
+
                         <p>Hejsan! Har du en villatomt?</p>
                         <button className="ja-knapp" type="submit" onClick={e => setSection("harTomt")}>Ja</button>
                         <button className="nej-knapp" type="submit" onClick={e => setSection("ingenTomt")}>Nej</button>
@@ -124,7 +124,7 @@ background:#fff;
 
 const SectionDiv = styled.section`
 width:320px;
-background:lightgray;
+background:#d3d3d33d;
 padding: 20px;
 border-radius: 4px;
 margin: 0 auto;

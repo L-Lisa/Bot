@@ -1,10 +1,10 @@
 import React from "react"
-
+import styled from 'styled-components/macro'
 
 export const RantaSumma = ({ ranta, setRanta }) => {
     return (
-        <label className="hus-lan">
-            <input placeholder="SEK"
+        <Label className="hus-lan">
+            <Input placeholder="SEK"
                 type="number"
                 step="0.01"
                 placeholder="%"
@@ -14,6 +14,18 @@ export const RantaSumma = ({ ranta, setRanta }) => {
                 onChange={e => setRanta(e.target.value)}
                 required
             />
-        </label>
+        </Label>
     )
 }
+
+
+const Label = styled.label`
+display:flex;
+flex-direction:column;
+`
+
+const Input = styled.input`
+height:1.1rem;
+width:50%;
+max-width: 60px;
+`;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import styled from 'styled-components/macro'
 
 
 export const Kalkyl = ({ ranta, husLan, kampanjval, korttids }) => {
@@ -22,7 +22,7 @@ export const Kalkyl = ({ ranta, husLan, kampanjval, korttids }) => {
     }
     return (
         <div>
-            <p>Din kalkyl</p>
+
             <button onClick={() => setRantebesparing(RantebesparingFunc(), setPassiv(PassivInFunc()))}>Gör din kalkyl</button>
             {rantebesparing && kampanjval === "Ja" && <p>Din Räntebesparing: {rantebesparing}kr</p>}
             {husLan !== "" && ranta !== "" && passiv && <p>Möjlig månatlig passiv inkomst:{passiv}kr</p>}
