@@ -1,13 +1,15 @@
 import React from "react"
 import styled from 'styled-components/macro'
-import { ricardoRund } from "./images/ricardoRund.png"
+import { ricardo } from "./ricardo.png"
 
 
 export const Header = () => {
     return (
         <HeaderDiv>
-            <img src={ricardoRund} alt="Ricardo Pineda" />
-            <h1>Ricardo Pineda</h1><p>Attefalls Förmedlaren</p>
+            <img src={ricardo} alt="Ricardo Pineda" />
+            <TextHeader>
+                <HeaderR>Ricardo Pineda</HeaderR><p>Attefalls Förmedlaren</p>
+            </TextHeader>
         </HeaderDiv>
     )
 }
@@ -15,3 +17,11 @@ export const Header = () => {
 const HeaderDiv = styled.section`
 width:100%;
 `;
+const TextHeader = styled.div`
+display:flex;
+align-items: baseline; 
+`;
+
+const HeaderR = styled.h1`
+margin:5px;
+`

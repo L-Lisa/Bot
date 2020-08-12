@@ -7,6 +7,7 @@ export const RantaSumma = ({ ranta, setRanta }) => {
             <input placeholder="SEK"
                 type="number"
                 step="0.01"
+                placeholder="%"
                 data-decimals="2"
                 value={ranta}
                 id={ranta}

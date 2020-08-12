@@ -7,6 +7,7 @@ import { LanSumma } from "./LanSumma"
 import { RantaSumma } from "./RantaSumma"
 import { VillaVarde } from "./VillaVarde"
 import { Header } from "./Header"
+import { ricardo } from "./ricardo.png"
 
 export const FormBot = () => {
     const [section, setSection] = useState("start")
@@ -47,8 +48,8 @@ export const FormBot = () => {
 
                         {/*  <img src="/Users/lisa/Desktop/ChatBotCli/chat-bot/src/ricardoRund.png" alt="Ricardo" class="ricardoheader" /> */}
 
-
                         <Header />
+                        <img src={ricardo} alt="Ricardo Pineda" />
                         <p>Hejsan! Har du en villatomt?</p>
                         <button className="ja-knapp" type="submit" onClick={e => setSection("harTomt")}>Ja</button>
                         <button className="nej-knapp" type="submit" onClick={e => setSection("ingenTomt")}>Nej</button>
@@ -57,11 +58,13 @@ export const FormBot = () => {
                 )}
                 {section === "ingenTomt" && (
                     <SectionDiv>
+                        <Header />
                         <p>Du behöver vara ägare av en tomt i Stockholm för att kunna bygga med oss</p>
                     </SectionDiv>
                 )}
                 {section === "harTomt" && (
                     <SectionDiv>
+                        <Header />
                         <div>
                             <p>
                                 Fantastiskt! Då kan du tjäna 40.000kr per år!
@@ -84,6 +87,7 @@ export const FormBot = () => {
                 )}
                 {section === "mainform" && (
                     <SectionDiv>
+                        <Header />
                         <fieldset>
                             <p>Hur mycket är din villa värderad till idag?</p>
                             <VillaVarde villavarde={villavarde} setVillaVarde={setVillaVarde} />
@@ -120,6 +124,8 @@ background:#fff;
 
 const SectionDiv = styled.section`
 width:320px;
-height:400px;
 background:lightgray;
+padding: 20px;
+border-radius: 4px;
+margin: 0 auto;
 `;
