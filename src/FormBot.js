@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
+import styled from 'styled-components/macro'
 import { InvestSumma } from "./InvestSumma"
 import { Kalkyl } from "./Kalkyl"
 import { Kampanj } from "./Kampanj"
 import { LanSumma } from "./LanSumma"
 import { RantaSumma } from "./RantaSumma"
 import { VillaVarde } from "./VillaVarde"
-
+import { Header } from "./Header"
 
 export const FormBot = () => {
     const [section, setSection] = useState("start")
-    const summa = ["100000", "200000", "300000", "400000"]
     const [valdSumma, setValdSumma] = useState("")
     const [husLan, setHusLan] = useState("")
     const [ranta, setRanta] = useState("")
@@ -40,49 +40,50 @@ export const FormBot = () => {
 
     return (
 
-        <div>
-            <form onSubmit={handleSubmit} >
+        <Wrapper>
+            <Form onSubmit={handleSubmit} >
                 {section === "start" && (
-                    <section className="section-div">
+                    <SectionDiv>
 
                         {/*  <img src="/Users/lisa/Desktop/ChatBotCli/chat-bot/src/ricardoRund.png" alt="Ricardo" class="ricardoheader" /> */}
-                        <span className="ricardoRound"></span>
-                        <div className="top"></div>
-                        <h1>Ricardo Pineda</h1><p>Attefalls Förmedlaren</p>
 
+
+                        <Header />
                         <p>Hejsan! Har du en villatomt?</p>
                         <button className="ja-knapp" type="submit" onClick={e => setSection("harTomt")}>Ja</button>
                         <button className="nej-knapp" type="submit" onClick={e => setSection("ingenTomt")}>Nej</button>
-                    </section>
+                    </SectionDiv>
 
                 )}
                 {section === "ingenTomt" && (
-                    <div>
+                    <SectionDiv>
                         <p>Du behöver vara ägare av en tomt i Stockholm för att kunna bygga med oss</p>
-                    </div>
+                    </SectionDiv>
                 )}
                 {section === "harTomt" && (
-                    <div>
-                        <p>
-                            Fantastiskt! Då kan du tjäna 40.000kr per år!
-                            </p>
+                    <SectionDiv>
                         <div>
+                            <p>
+                                Fantastiskt! Då kan du tjäna 40.000kr per år!
+                            </p>
+
                             <p>Kan du tänka dig korttidsuthyrning för att tjäna från 10000 kr extra per år?
 </p>
-
-                            <button className="nej-knapp" onClick={() => {
-                                setSection("mainform");
-                                setKorttids(10000)
-                            }}>Ja</button>
-                            <button className="nej-knapp" onClick={() => {
-                                setSection("mainform");
-                                setKorttids(0)
-                            }}>Nej</button>
+                            <div>
+                                <button className="nej-knapp" onClick={() => {
+                                    setSection("mainform");
+                                    setKorttids(10000)
+                                }}>Ja</button>
+                                <button className="nej-knapp" onClick={() => {
+                                    setSection("mainform");
+                                    setKorttids(0)
+                                }}>Nej</button>
+                            </div>
                         </div>
-                    </div>
+                    </SectionDiv>
                 )}
                 {section === "mainform" && (
-                    <div>
+                    <SectionDiv>
                         <fieldset>
                             <p>Hur mycket är din villa värderad till idag?</p>
                             <VillaVarde villavarde={villavarde} setVillaVarde={setVillaVarde} />
@@ -94,17 +95,31 @@ export const FormBot = () => {
                             <Kampanj kampanjval={kampanjval} setKampanjval={setKampanjval} />
                             <Kalkyl ranta={ranta} husLan={husLan} kampanjval={kampanjval} korttids={korttids} />
                         </fieldset>
-                    </div>
+                    </SectionDiv>
                 )}
 
-            </form>
+            </Form>
             {/* {section === "samanfatta" && (
                 <article className="sammanfatta">
                     <Total ranta={ranta} husLan={husLan} />
                 </article>
             )} */}
-        </div>
+        </Wrapper>
 
     )
 }
 
+const Wrapper = styled.main`
+width:100%;
+`;
+
+
+const Form = styled.form`
+background:#fff;
+`;
+
+const SectionDiv = styled.section`
+width:320px;
+height:400px;
+background:lightgray;
+`;
